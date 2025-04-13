@@ -9,7 +9,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: sonatype-nexus
+      chart: nexus-repository-manager
       version: '5.0.0'
       sourceRef:
         kind: HelmRepository
