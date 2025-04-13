@@ -1,11 +1,11 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: sonatype
+  name: stevehipwell
   namespace: flux-system
 spec:
   interval: 1h
-  url: https://sonatype.github.io/helm3-charts/
+  url: https://stevehipwell.github.io/helm-charts/
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
