@@ -1,0 +1,35 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nexus
+  namespace: flux-system
+spec:
+  releaseName: nexus
+  targetNamespace: nexus
+  interval: 5m
+  chart:
+    spec:
+      chart: sonatype-nexus
+      version: '5.0.0'
+      sourceRef:
+        kind: HelmRepository
+        name: sonatype
+        namespace: flux-system
+  values:
+    nexus:
+      dockerPort: 5003
+      imageName: sonatype/nexus3
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "1Gi"
+        limits:
+          cpu: "1000m"
+          memory: "2Gi"
+    nexusProxy:
+      enabled: false
+    persistence:
+      enabled: true
+      storageSize: 8Gi
+    service:
+      type: ClusterIP
