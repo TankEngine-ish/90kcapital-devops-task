@@ -10,10 +10,9 @@ spec:
   chart:
     spec:
       chart: redis
-      # version: '20.11.4'
       sourceRef:
         kind: OCIRepository
-        name: bitnami-redis
+        name: redis-chart
         namespace: flux-system
   values:
     auth:
