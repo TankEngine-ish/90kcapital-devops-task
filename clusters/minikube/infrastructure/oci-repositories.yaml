@@ -1,9 +1,13 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: OCIRepository
 metadata:
-  name: bitnami-redis
+  name: redis-chart
   namespace: flux-system
 spec:
   interval: 1h
   url: oci://registry-1.docker.io/bitnamicharts/redis
-  provider: generic
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: copy
+  ref:
+    tag: "20.11.4"  # Specify the version as a tag
