@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vault
+  namespace: flux-system
+spec:
+  releaseName: vault
+  targetNamespace: vault
+  interval: 5m
+  chart:
+    spec:
+      chart: vault
+      version: '0.24.0'
+      sourceRef:
+        kind: HelmRepository
+        name: hashicorp
+        namespace: flux-system
+  values:
+    server:
+      dev:
+        enabled: true  # this means that Vault runs in in-memory mode and no data is persisted after a pod restart for example
+      standalone:
+        enabled: true
+      service:
+        enabled: true
+    ui:
+      enabled: true
