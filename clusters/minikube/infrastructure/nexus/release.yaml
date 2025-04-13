@@ -9,16 +9,22 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: nexus-repository-manager
-      version: '5.0.0'
+      chart: nexus3
+      version: '5.9.1'
       sourceRef:
         kind: HelmRepository
-        name: sonatype
+        name: stevehipwell
         namespace: flux-system
   values:
+    service:
+      type: ClusterIP
+    persistence:
+      enabled: true
+      storageSize: 8Gi
     nexus:
-      dockerPort: 5003
-      imageName: sonatype/nexus3
+      docker:
+        enabled: true
+        port: 5003
       resources:
         requests:
           cpu: "500m"
@@ -26,10 +32,3 @@ spec:
         limits:
           cpu: "1000m"
           memory: "2Gi"
-    nexusProxy:
-      enabled: false
-    persistence:
-      enabled: true
-      storageSize: 8Gi
-    service:
-      type: ClusterIP
