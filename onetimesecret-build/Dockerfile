@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libssl-dev \
     git \
+    libffi-dev \ 
+    libyaml-dev \    
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/onetimesecret/onetimesecret.git .
