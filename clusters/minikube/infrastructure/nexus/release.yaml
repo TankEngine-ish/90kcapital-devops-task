@@ -24,7 +24,7 @@ spec:
     nexus:
       docker:
         enabled: true
-        port: 5003
+        port: 5000
       resources:
         requests:
           cpu: "500m"
