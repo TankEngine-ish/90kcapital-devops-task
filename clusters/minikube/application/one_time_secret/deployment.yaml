@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onetimesecret
+  namespace: onetimesecret
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: onetimesecret
+  template:
+    metadata:
+      labels:
+        app: onetimesecret
+    spec:
+      containers:
+      - name: onetimesecret
+        image: nexus.nexus.svc.cluster.local:5000/onetimesecret:latest
+        ports:
+        - containerPort: 7143
+        volumeMounts:
+        - name: config
+          mountPath: /app/etc/config.yaml
+          subPath: config.yaml
+      volumes:
+      - name: config
+        configMap:
+          name: onetimesecret-config
+      imagePullSecrets:
+      - name: regcred

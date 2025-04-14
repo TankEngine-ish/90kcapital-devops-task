@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: onetimesecret
+  namespace: onetimesecret
+spec:
+  selector:
+    app: onetimesecret
+  ports:
+  - port: 80
+    targetPort: 7143
+  type: ClusterIP
