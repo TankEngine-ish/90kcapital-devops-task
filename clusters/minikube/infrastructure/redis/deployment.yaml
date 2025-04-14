@@ -25,7 +25,7 @@ spec:
         volumeMounts:
         - name: redis-data
           mountPath: /data
-        command: ["redis-server", "--requirepass", "redis-password"]
+        command: ["redis-server", "--requirepass", "redis"]
       volumes:
       - name: redis-data
         persistentVolumeClaim:
