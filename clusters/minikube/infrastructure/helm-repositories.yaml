@@ -1,4 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v2
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: stevehipwell
@@ -7,7 +7,7 @@ spec:
   interval: 1h
   url: https://stevehipwell.github.io/helm-charts/
 ---
-apiVersion: source.toolkit.fluxcd.io/v2
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: hashicorp
@@ -16,7 +16,7 @@ spec:
   interval: 1h
   url: https://helm.releases.hashicorp.com
 ---
-apiVersion: source.toolkit.fluxcd.io/v2
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: external-secrets
@@ -25,7 +25,7 @@ spec:
   interval: 1h
   url: https://charts.external-secrets.io
 ---
-# apiVersion: source.toolkit.fluxcd.io/v2
+# apiVersion: source.toolkit.fluxcd.io/v1beta2
 # kind: HelmRepository
 # metadata:
 #   name: bitnami
