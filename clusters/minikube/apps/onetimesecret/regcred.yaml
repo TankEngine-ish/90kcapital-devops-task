@@ -14,7 +14,7 @@ spec:
     template:
       type: kubernetes.io/dockerconfigjson
       data:
-        .dockerconfigjson: |-
+        .dockerconfigjson: |
           {
             "auths": {
               "{{ .nexusUrl }}": {
@@ -36,4 +36,6 @@ spec:
   - secretKey: nexusUrl
     remoteRef:
       key: nexus
-      property: nexusUrl
+      property: url
+      conversionStrategy: Default
+      decodingStrategy: None
