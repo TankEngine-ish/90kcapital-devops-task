@@ -7,4 +7,4 @@ redis:
   host: redis.redis.svc.cluster.local
   port: 6379
   db: 0
-  password: 'redis-password'
+  password: 'redis'
