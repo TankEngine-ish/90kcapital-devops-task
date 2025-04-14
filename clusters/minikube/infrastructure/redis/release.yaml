@@ -9,7 +9,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: redis
+      chart: ./
       sourceRef:
         kind: OCIRepository
         name: redis-chart
