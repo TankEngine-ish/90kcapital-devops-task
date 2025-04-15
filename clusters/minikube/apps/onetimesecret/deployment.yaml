@@ -18,6 +18,11 @@ spec:
         image: 10.103.64.91:5000/onetimesecret:latest
         ports:
         - containerPort: 7143
+        env:
+        - name: RACK_ENV
+          value: production
+        - name: RAILS_ENV
+          value: production
         volumeMounts:
         - name: config
           mountPath: /app/etc/config.yaml
