@@ -15,10 +15,6 @@ RUN git clone https://github.com/onetimesecret/onetimesecret.git .
 RUN gem install bundler -v '< 2.0' && \
     bundle install
 
-RUN mkdir -p /app/etc
-
-# configuration files will be mounted as ConfigMaps
-
 EXPOSE 7143
 
-CMD ["bundle", "exec", "thin", "start", "-e", "production", "-p", "7143", "-R", "config.ru"]
+CMD ["bundle", "exec", "thin", "start", "-e", "development", "-p", "7143", "-R", "config.ru"]
