@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: onetimesecret
-        image: localhost:5000/onetimesecret:latest
+        image: nexus-docker.nexus.svc.cluster.local:5000
         ports:
         - containerPort: 7143
         env:
