@@ -15,21 +15,18 @@ spec:
     spec:
       containers:
       - name: onetimesecret
-        image: 10.103.64.91:5000/onetimesecret:latest
+        image: localhost:5000/onetimesecret:latest
         ports:
         - containerPort: 7143
         env:
         - name: RACK_ENV
-          value: production
+          value: development
         - name: RAILS_ENV
-          value: production
-        volumeMounts:
-        - name: config
-          mountPath: /app/etc/config.yaml
-          subPath: config.yaml
-      volumes:
-      - name: config
-        configMap:
-          name: onetimesecret-config
+          value: development
+        - name: REDIS_URL
+          value: redis://:$(REDIS_PASSWORD)@redis.redis.svc.cluster.local:6379/0
+        envFrom:
+        - secretRef:
+            name: redis-secret
       imagePullSecrets:
       - name: regcred
