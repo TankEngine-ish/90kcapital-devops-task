@@ -16,3 +16,14 @@ data:
         port: 6379
         db: 0
         password: 'redis'
+    development:
+      site:
+        host: localhost:7143
+        domain: localhost
+        ssl: false
+        secret: 'CHANGE_THIS_SECRET'
+      redis:
+        host: redis.redis.svc.cluster.local
+        port: 6379
+        db: 0
+        password: 'redis'
