@@ -28,7 +28,7 @@ spec:
     nexus:
       docker:
         enabled: true
-        port: 5000  # Changed from 5003 to 5000 to match your repository config
+        port: 5000  
       resources:
         requests:
           cpu: "500m"
