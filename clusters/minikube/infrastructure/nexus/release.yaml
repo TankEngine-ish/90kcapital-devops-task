@@ -18,13 +18,17 @@ spec:
   values:
     service:
       type: ClusterIP
+      ports:
+        - name: docker
+          port: 5000
+          targetPort: 5000
     persistence:
       enabled: true
       storageSize: 8Gi
     nexus:
       docker:
         enabled: true
-        port: 5000
+        port: 5000  # Changed from 5003 to 5000 to match your repository config
       resources:
         requests:
           cpu: "500m"
