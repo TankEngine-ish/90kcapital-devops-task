@@ -17,14 +17,18 @@ spec:
       - name: onetimesecret
         image: 10.103.64.91:5000/onetimesecret:latest
         ports:
-        - containerPort: 7143
+        - containerPort: 3000
         env:
-        - name: RACK_ENV
-          value: development
-        - name: RAILS_ENV
-          value: development
+        - name: HOST
+          value: "onetimesecret.onetimesecret.svc.cluster.local:80"
+        - name: SSL
+          value: "false"
+        - name: COLONEL
+          value: "admin@example.com"
         - name: REDIS_URL
-          value: redis://:$(REDIS_PASSWORD)@redis.redis.svc.cluster.local:6379/0
+          value: "redis://:redis@redis.redis.svc.cluster.local:6379/0"
+        - name: RACK_ENV
+          value: "production"
         envFrom:
         - secretRef:
             name: redis-secret
