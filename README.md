@@ -146,6 +146,7 @@ I also wanted to check if the secrets were correctly being saved to my Redis.
 - Clean-up my Redis folder. I don't think I need the manual methods for deployment of Redis via the deployment.yaml, pvc.yaml and service.yaml. I can only keep namespace.yaml, release.yaml and the oci-repositories.yaml. Preserve the modern Helm OCI methodology.
 
 - I need to make my terraform more modular by splitting the main.tf in maybe 4 other files like: 
+
 ├── providers.tf       
 ├── variables.tf       
 ├── flux.tf            
