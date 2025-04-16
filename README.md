@@ -11,7 +11,7 @@ I knew I had a lingering kubernetes context from when I was deploying kubeadm vi
 
 After installing minikube i gave my m02 node a superficial label of "worker", then switched the context (which is done automatically, though) and was ready to go.
 
-### But why did I chosse Minikube?
+### But why did I choose Minikube?
 
 * Well, it's one of the oldest and most well-established local Kubernetes solutions with a rich documentation and user base which is priceless when everything starts **imagepullbackoff**-ing.
 
@@ -23,7 +23,7 @@ At the beginning I was thinking how many components would be possible to deploy 
 
 ![alt text](<assets/Screenshot from 2025-04-14 11-17-55.png>)
 
-I made the whole TF configuration more modular as I am still fresh from my last infrastructure project where I wrote about 15 different TF files. I also checked Stefan Prodan's repository - https://github.com/controlplaneio-fluxcd/flux-operator/tree/main/config/terraform to see if I'm not missing some crucial statement or variable (this is the first time I am using anything Flux related but I have used ArgoCD before). All in all, I deploy the Flux Operator, which gives my cluster the ability to manage Flux. Then I create a "flux_instance" which is a request to the operator to create a properly configured FluxCD installation:
+I will make the whole TF configuration more modular as I am still fresh from my last infrastructure project where I wrote about 15 different TF files. I can spread out the configuration in at least 4 files that could be providers, variable, flux and outputs.tf. I also checked Stefan Prodan's repository - https://github.com/controlplaneio-fluxcd/flux-operator/tree/main/config/terraform to see if I'm not missing some crucial statement or variable (this is the first time I am using anything Flux related but I have used ArgoCD before). All in all, I deploy the Flux Operator, which gives my cluster the ability to manage Flux. Then I create a "flux_instance" which is a request to the operator to create a properly configured FluxCD installation:
 
 ![alt text](assets/fluxcd_terraform.png)
 
